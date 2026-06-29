@@ -1,0 +1,3 @@
+cloudscraper
+gspread
+google-auth
