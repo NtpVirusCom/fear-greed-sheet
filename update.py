@@ -1,3 +1,4 @@
+import os
 import json
 import datetime
 import cloudscraper
@@ -20,10 +21,18 @@ scope=[
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds=Credentials.from_service_account_file(
-    "credentials.json",
+info=json.loads(os.environ["GOOGLE_CREDENTIALS"])
+
+creds=Credentials.from_service_account_info(
+    info,
     scopes=scope
 )
+
+
+#creds=Credentials.from_service_account_file(
+#    "credentials.json",
+#    scopes=scope
+#)
 
 gc=gspread.authorize(creds)
 
